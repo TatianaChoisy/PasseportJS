@@ -1,2 +1,2 @@
-# Passeport-JS
+# PasseportJS
 Authentification avec PassportJS
