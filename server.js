@@ -1,19 +1,21 @@
 let express  = require('express'),
-	mongoose = require('mongoose'),
+	MongoClient = require('mongoose'),
 	passport = require('passport'),
 	flash = require('connect-flash')
 	bodyParser = require('body-parser');
 	cookieParser = require('cookie-parser');
 	session = require('express-session');
 	http = require('http')
+	
+	
 
+MongoClient.connect('mongodb://localhost/anastasia', { useNewUrlParser: true })
+MongoClient.set('useCreateIndex', true);
 let app  = express()
-const port     = process.env.PORT || 8080
-const configDB = 'mongodb://localhost/anastasia'
+const port = process.env.PORT || 8080
+// mongoose.connect(configDB)
 
-mongoose.connect(configDB)
-
-require('./config/database') //
+// require('./config/database', { useNewUrlParser: true }) //
 
 
 
@@ -21,7 +23,14 @@ app.use(cookieParser()); // cookies pour l'authentification
 //app.use(bodyParser.urlencoded()); // interprète la forme du html
 //app.use(express.session({ secret: '' })); // session secrète
 app.use(passport.initialize());
-app.use(passport.session()); // persiste la connexion à la session
+app.use(session(
+	{
+		cookie: { maxAge: 60000 },
+		secret: 'test',
+		resave: true,
+		saveUnitialized: false
+	}
+)); // persiste la connexion à la session
 app.use(flash()); // utilisé pour flasher les messages stockés dans la session
 
 
