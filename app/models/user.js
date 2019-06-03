@@ -1,5 +1,7 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+'use strict'
+
+const mongoose = require('mongoose'),
+			bcrypt = require('bcrypt');
 
 var UserSchema = mongoose.Schema({
 	username: {
