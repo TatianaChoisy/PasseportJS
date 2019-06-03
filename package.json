@@ -1,0 +1,20 @@
+{
+  "name": "passeportjs",
+  "version": "1.0.0",
+  "description": "Authentification avec PassportJS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TatianaChoisy/PasseportJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TatianaChoisy/PasseportJS/issues"
+  },
+  "homepage": "https://github.com/TatianaChoisy/PasseportJS#readme"
+}

@@ -1,6 +1,6 @@
 module.exports = {
     'facebookAuth : {
-        AppID: '',
-    AppSecret: '',
-    callbackURL: 'http://localhost:8080/auth/Facebook/callback'
+        AppID: 'Renseignez l\'ID de votre appli',
+        AppSecret: 'Renseignez la clé secrète de votre appli',
+        callbackURL: 'Renseignez l\'url, par exemple http://localhost:3000'
 }
