@@ -1,10 +1,10 @@
 let express  = require('express'),
 	MongoClient = require('mongoose'),
 	passport = require('passport'),
-	flash = require('connect-flash')
-	bodyParser = require('body-parser');
-	cookieParser = require('cookie-parser');
-	session = require('express-session');
+	flash = require('connect-flash'),
+	bodyParser = require('body-parser'),
+	cookieParser = require('cookie-parser'),
+	session = require('express-session'),
 	http = require('http')
 	
 	
@@ -20,7 +20,8 @@ const port = process.env.PORT || 8080
 
 
 app.use(cookieParser()); // cookies pour l'authentification
-//app.use(bodyParser.urlencoded()); // interprète la forme du html
+app.use(bodyParser.json()); // interprète la forme du html
+app.use(bodyParser.urlencoded()); // interprète la forme du html
 //app.use(express.session({ secret: '' })); // session secrète
 app.use(passport.initialize());
 app.use(session(
@@ -36,10 +37,10 @@ app.use(flash()); // utilisé pour flasher les messages stockés dans la session
 app.set('view engine', 'ejs');
 
 
-require('./app/routes.js')(app, passport)
+require('./app/routes/routes.js')(app, passport)
 
 // app.listen(8080);
 // console.log('Server running on port: ' + port);
 
 
-http.createServer(app).listen(8080);
+http.createServer(app).listen(port);

@@ -1,5 +1,8 @@
-var User = require('./models/user');
-module.exports = function(app, passport){
+var passport = require('passport');
+var flash = require('connect-flash');
+
+
+module.exports = function (app, passport) {
 	app.get('/', function(req, res){
 		res.render('index.ejs');
 	});
@@ -49,4 +52,5 @@ function isLoggedIn(req, res, next) {
 	}
 
 	res.redirect('/login');
+	console.log();
 }
